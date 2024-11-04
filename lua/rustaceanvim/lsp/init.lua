@@ -167,6 +167,7 @@ M.start = function(bufnr)
 
   lsp_start_config.settings = get_start_settings(bufname, root_dir, client_config)
   configure_file_watcher(lsp_start_config)
+  lsp_start_config.init_options = vim.tbl_get(lsp_start_config.settings, 'rust-analyzer')
 
   -- rust-analyzer treats settings in initializationOptions specially -- in particular, workspace_discoverConfig
   -- so copy them to init_options (the vim name)
